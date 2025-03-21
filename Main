@@ -1,0 +1,479 @@
+import React, { useState, useEffect } from 'react';
+import { BookOpen, Zap, Atom, Cpu, PenTool, FileText, Video, Download, ChevronRight, Home, Menu, X, Moon, Star, CloudLightning, Compass, Monitor, PlayCircle, CheckSquare, ExternalLink } from 'lucide-react';
+
+const PhysicsClassWebsite = () => {
+  const [activeCourse, setActiveCourse] = useState('home');
+  const [expandedUnit, setExpandedUnit] = useState(null);
+  const [expandedCategory, setExpandedCategory] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [animateBackground, setAnimateBackground] = useState(true);
+
+  // For the particle background animation
+  const [particles, setParticles] = useState([]);
+  
+  useEffect(() => {
+    if (animateBackground) {
+      // Create particles for the animated background
+      const newParticles = Array.from({ length: 50 }, () => ({
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.5 + 0.1
+      }));
+      setParticles(newParticles);
+      
+      // Animation loop for particles
+      const interval = setInterval(() => {
+        setParticles(prevParticles => 
+          prevParticles.map(p => ({
+            ...p,
+            x: (p.x + p.speedX + 100) % 100,
+            y: (p.y + p.speedY + 100) % 100
+          }))
+        );
+      }, 50);
+      
+      return () => clearInterval(interval);
+    }
+  }, [animateBackground]);
+
+  const courses = [
+    { id: 'physics1', name: 'Physics 1', icon: <Zap size={20} />, color: 'from-purple-600 to-blue-600', image: 'motion' },
+    { id: 'ap-physics1', name: 'AP Physics 1', icon: <CloudLightning size={20} />, color: 'from-blue-600 to-cyan-500', image: 'forces' },
+    { id: 'ap-physics2', name: 'AP Physics 2', icon: <Atom size={20} />, color: 'from-cyan-500 to-teal-500', image: 'waves' },
+    { id: 'ap-physics-c-mechanics', name: 'AP Physics C: Mechanics', icon: <Compass size={20} />, color: 'from-teal-500 to-green-500', image: 'mechanics' },
+    { id: 'ap-physics-c-em', name: 'AP Physics C: E&M', icon: <Zap size={20} />, color: 'from-green-500 to-yellow-500', image: 'electricity' },
+    { id: 'robotics', name: 'Robotics', icon: <Cpu size={20} />, color: 'from-yellow-500 to-orange-500', image: 'robotics' },
+  ];
+
+  // Generate units 0-12 for each course
+  const generateUnits = (courseId) => {
+    return Array.from({ length: 13 }, (_, i) => ({
+      id: `${courseId}-unit-${i}`,
+      unitNumber: i,
+      title: `Unit ${i}`,
+    }));
+  };
+
+  // Resource categories inside each unit
+  const resourceCategories = [
+    { id: 'ced', title: 'CED', icon: <FileText size={18} /> },
+    { id: 'notes', title: 'Notes', icon: <PenTool size={18} /> },
+    { id: 'lectures', title: 'Lectures', icon: <Monitor size={18} /> },
+    { id: 'ppt', title: 'PowerPoint', icon: <Monitor size={18} /> },
+    { id: 'videos', title: 'Videos of Interest', icon: <PlayCircle size={18} /> },
+    { id: 'guided-practice', title: 'Guided Practice', icon: <CheckSquare size={18} /> },
+    { id: 'practice-problems', title: 'Practice Problems', icon: <FileText size={18} /> },
+  ];
+
+  // Sample resources for each category - each with 3 links
+  const generateResourceLinks = (categoryId, unitNumber) => {
+    const resources = {
+      'ced': [
+        { name: `${categoryId.toUpperCase()} Resource 1 for Unit ${unitNumber}`, url: '#resource1' },
+        { name: `${categoryId.toUpperCase()} Resource 2 for Unit ${unitNumber}`, url: '#resource2' },
+        { name: `${categoryId.toUpperCase()} Resource 3 for Unit ${unitNumber}`, url: '#resource3' },
+      ],
+      'notes': [
+        { name: `Class Notes Part 1 - Unit ${unitNumber}`, url: '#notes1' },
+        { name: `Class Notes Part 2 - Unit ${unitNumber}`, url: '#notes2' },
+        { name: `Summary Notes - Unit ${unitNumber}`, url: '#notes3' },
+      ],
+      'lectures': [
+        { name: `Lecture Slides Day 1 - Unit ${unitNumber}`, url: '#lecture1' },
+        { name: `Lecture Slides Day 2 - Unit ${unitNumber}`, url: '#lecture2' },
+        { name: `Lecture Slides Day 3 - Unit ${unitNumber}`, url: '#lecture3' },
+      ],
+      'ppt': [
+        { name: `PowerPoint Presentation 1 - Unit ${unitNumber}`, url: '#ppt1' },
+        { name: `PowerPoint Presentation 2 - Unit ${unitNumber}`, url: '#ppt2' },
+        { name: `PowerPoint Presentation 3 - Unit ${unitNumber}`, url: '#ppt3' },
+      ],
+      'videos': [
+        { name: `Video Tutorial 1 - Unit ${unitNumber}`, url: '#video1' },
+        { name: `Video Tutorial 2 - Unit ${unitNumber}`, url: '#video2' },
+        { name: `Video Tutorial 3 - Unit ${unitNumber}`, url: '#video3' },
+      ],
+      'guided-practice': [
+        { name: `Guided Exercise Set 1 - Unit ${unitNumber}`, url: '#guided1' },
+        { name: `Guided Exercise Set 2 - Unit ${unitNumber}`, url: '#guided2' },
+        { name: `Guided Exercise Set 3 - Unit ${unitNumber}`, url: '#guided3' },
+      ],
+      'practice-problems': [
+        { name: `Problem Set 1 - Unit ${unitNumber}`, url: '#problems1' },
+        { name: `Problem Set 2 - Unit ${unitNumber}`, url: '#problems2' },
+        { name: `Challenge Problems - Unit ${unitNumber}`, url: '#problems3' },
+      ],
+    };
+    
+    return resources[categoryId] || [];
+  };
+
+  const toggleUnit = (unitId) => {
+    if (expandedUnit === unitId) {
+      setExpandedUnit(null);
+      setExpandedCategory(null);
+    } else {
+      setExpandedUnit(unitId);
+      setExpandedCategory(null);
+    }
+  };
+
+  const toggleCategory = (categoryId) => {
+    if (expandedCategory === categoryId) {
+      setExpandedCategory(null);
+    } else {
+      setExpandedCategory(categoryId);
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const switchCourse = (courseId) => {
+    setActiveCourse(courseId);
+    setMobileMenuOpen(false);
+    setExpandedUnit(null);
+    setExpandedCategory(null);
+  };
+
+  const getCategoryIcon = (categoryId) => {
+    switch(categoryId) {
+      case 'ced': return <FileText size={18} />;
+      case 'notes': return <PenTool size={18} />;
+      case 'lectures': return <Monitor size={18} />;
+      case 'ppt': return <Monitor size={18} />;
+      case 'videos': return <PlayCircle size={18} />;
+      case 'guided-practice': return <CheckSquare size={18} />;
+      case 'practice-problems': return <FileText size={18} />;
+      default: return <FileText size={18} />;
+    }
+  };
+
+  const renderResourceLinks = (categoryId, unitNumber) => {
+    const links = generateResourceLinks(categoryId, unitNumber);
+    
+    return (
+      <div className="space-y-2 py-2">
+        {links.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            className="flex items-center p-3 rounded-md bg-gray-800 hover:bg-gray-700 transition-all duration-300 hover:translate-x-1 group"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExternalLink size={16} className="text-blue-400 mr-3 group-hover:text-blue-300" />
+            <span className="flex-grow">{link.name}</span>
+          </a>
+        ))}
+      </div>
+    );
+  };
+
+  const renderParticleBackground = () => (
+    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+      {particles.map((particle, index) => (
+        <div
+          key={index}
+          className="absolute rounded-full bg-blue-500"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            opacity: particle.opacity,
+            boxShadow: `0 0 ${particle.size * 2}px rgba(59, 130, 246, ${particle.opacity})`,
+          }}
+        />
+      ))}
+    </div>
+  );
+
+  const getCourseGradient = (courseId) => {
+    const course = courses.find(c => c.id === courseId);
+    return course ? course.color : 'from-blue-600 to-purple-600';
+  };
+
+  const renderHome = () => (
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {courses.map((course) => (
+        <div 
+          key={course.id}
+          onClick={() => setActiveCourse(course.id)}
+          className={`bg-gray-800 rounded-xl p-6 cursor-pointer hover:scale-105 transition-all duration-300 transform shadow-xl hover:shadow-2xl overflow-hidden relative bg-gradient-to-br ${course.color}`}
+        >
+          <div className="absolute inset-0 opacity-10 bg-pattern-dots"></div>
+          
+          <div className="relative z-10">
+            <div className="flex items-center mb-4">
+              <div className="p-3 rounded-full bg-black bg-opacity-30 mr-3 backdrop-blur-sm">
+                {course.icon}
+              </div>
+              <h3 className="text-lg font-medium">{course.name}</h3>
+            </div>
+            <p className="text-white text-opacity-80 mb-4">
+              Access all units, materials, and resources for {course.name}.
+            </p>
+            <div className="flex items-center text-white group">
+              <span className="mr-2 group-hover:mr-3 transition-all">View course</span>
+              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderCourse = (courseId) => {
+    const units = generateUnits(courseId);
+    const gradientClass = getCourseGradient(courseId);
+    
+    return (
+      <div className="space-y-6">
+        {units.map((unit) => (
+          <div key={unit.id} className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div 
+              className={`p-4 flex items-center justify-between cursor-pointer hover:bg-opacity-90 bg-gradient-to-r ${gradientClass}`}
+              onClick={() => toggleUnit(unit.id)}
+            >
+              <div className="flex items-center">
+                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black bg-opacity-30 mr-3 backdrop-blur-sm">
+                  {unit.unitNumber}
+                </div>
+                <h3 className="text-lg font-medium">{unit.title}</h3>
+              </div>
+              <ChevronRight 
+                size={20} 
+                className={`transform transition-transform duration-300 ${expandedUnit === unit.id ? 'rotate-90' : ''}`}
+              />
+            </div>
+            
+            {expandedUnit === unit.id && (
+              <div className="bg-gray-900 border-t border-gray-700 animate-fadeIn">
+                {resourceCategories.map((category) => (
+                  <div key={category.id} className="border-b border-gray-800 last:border-b-0">
+                    <div 
+                      className="p-3 px-6 flex items-center justify-between cursor-pointer hover:bg-gray-800"
+                      onClick={() => toggleCategory(`${unit.id}-${category.id}`)}
+                    >
+                      <div className="flex items-center">
+                        <div className="p-2 rounded-full bg-gray-800 mr-3">
+                          {getCategoryIcon(category.id)}
+                        </div>
+                        <h4 className="font-medium">{category.title}</h4>
+                      </div>
+                      <ChevronRight 
+                        size={16} 
+                        className={`transform transition-transform duration-300 ${expandedCategory === `${unit.id}-${category.id}` ? 'rotate-90' : ''}`}
+                      />
+                    </div>
+                    
+                    {expandedCategory === `${unit.id}-${category.id}` && (
+                      <div className="px-6 pb-3 animate-fadeIn">
+                        {renderResourceLinks(category.id, unit.unitNumber)}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white relative">
+      {/* Animated particle background */}
+      {animateBackground && renderParticleBackground()}
+      
+      {/* Header */}
+      <header className="bg-gray-800 bg-opacity-90 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="relative">
+                <Atom size={28} className="text-blue-400 animate-pulse" />
+                <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-30"></div>
+              </div>
+              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                Physics & Robotics Hub
+              </h1>
+            </div>
+            
+            <div className="hidden md:flex items-center space-x-4">
+              <button 
+                onClick={() => setAnimateBackground(!animateBackground)}
+                className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors duration-300"
+                title={animateBackground ? "Disable animations" : "Enable animations"}
+              >
+                <Star size={16} className={`${animateBackground ? 'text-yellow-400' : 'text-gray-400'}`} />
+              </button>
+              
+              <button 
+                onClick={() => setActiveCourse('home')}
+                className="flex items-center bg-blue-900 hover:bg-blue-800 px-4 py-2 rounded-md transition-colors duration-300"
+              >
+                <Home size={16} className="mr-2" />
+                Home
+              </button>
+            </div>
+            
+            {/* Mobile menu button */}
+            <button 
+              className="md:hidden p-2 rounded-md bg-gray-700 hover:bg-gray-600"
+              onClick={toggleMobileMenu}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile navigation menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-gray-900 bg-opacity-95 md:hidden animate-fadeIn">
+          <div className="flex flex-col h-full pt-20 px-4 overflow-y-auto">
+            <button 
+              onClick={() => switchCourse('home')}
+              className="flex items-center justify-between p-4 mb-2 rounded-lg bg-blue-900"
+            >
+              <div className="flex items-center">
+                <Home size={20} className="mr-3" />
+                <span>Home</span>
+              </div>
+              <ChevronRight size={20} />
+            </button>
+            
+            {courses.map((course) => (
+              <button
+                key={course.id}
+                onClick={() => switchCourse(course.id)}
+                className={`flex items-center justify-between p-4 mb-2 rounded-lg bg-gradient-to-r ${course.color}`}
+              >
+                <div className="flex items-center">
+                  {course.icon}
+                  <span className="ml-3">{course.name}</span>
+                </div>
+                <ChevronRight size={20} />
+              </button>
+            ))}
+            
+            <div className="mt-auto mb-8 flex justify-center">
+              <button 
+                onClick={() => setAnimateBackground(!animateBackground)}
+                className="p-3 rounded-full bg-gray-800"
+              >
+                <Moon size={20} className={animateBackground ? 'text-yellow-400' : 'text-gray-400'} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Navigation */}
+      <nav className="bg-gray-800 bg-opacity-75 backdrop-blur-md shadow-sm hidden md:block">
+        <div className="container mx-auto px-4 py-1 overflow-x-auto scrollbar-thin">
+          <div className="flex space-x-1">
+            {courses.map((course) => (
+              <button
+                key={course.id}
+                onClick={() => switchCourse(course.id)}
+                className={`px-3 py-2 rounded-md whitespace-nowrap flex items-center transition-all duration-300 ${
+                  activeCourse === course.id 
+                  ? `bg-gradient-to-r ${course.color} text-white shadow-lg` 
+                  : 'text-gray-300 hover:bg-gray-700'
+                }`}
+              >
+                <span className="mr-2">{course.icon}</span>
+                {course.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8 relative z-10">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold mb-2 animate-fadeIn">
+            {activeCourse === 'home' 
+              ? 'Welcome to your Physics & Robotics Resource Hub' 
+              : courses.find(c => c.id === activeCourse)?.name || 'Course Resources'}
+          </h2>
+          <p className="text-gray-400 animate-fadeIn">
+            {activeCourse === 'home' 
+              ? 'Select a course to access materials, assignments, and resources.' 
+              : 'Select a unit to view available resources organized by category.'}
+          </p>
+        </div>
+
+        <div className="animate-fadeIn">
+          {activeCourse === 'home' ? renderHome() : renderCourse(activeCourse)}
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 bg-opacity-90 backdrop-blur-sm py-4 mt-8 relative z-10">
+        <div className="container mx-auto px-4 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} Physics & Robotics Department</p>
+        </div>
+      </footer>
+
+      {/* Custom CSS for animations */}
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+        
+        .animate-ping {
+          animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        
+        @keyframes ping {
+          75%, 100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar {
+          height: 6px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: rgba(31, 41, 55, 0.5);
+          border-radius: 3px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: rgba(59, 130, 246, 0.5);
+          border-radius: 3px;
+        }
+        
+        .bg-pattern-dots {
+          background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default PhysicsClassWebsite;
