@@ -40,18 +40,7 @@ body {
     letter-spacing: 1px;
     text-align: center;
     margin-top: 2rem;
-    background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
-    background-size: 400% 400%;
-    animation: rainbowFlow 10s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@keyframes rainbowFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    color: var(--text);
 }
 
 .container {
@@ -86,6 +75,25 @@ body {
     background-color: var(--card-hover-bg);
 }
 
+.class-card:nth-child(1) .class-header {
+    background-color: #ff6ec7;
+}
+.class-card:nth-child(2) .class-header {
+    background-color: #4facfe;
+}
+.class-card:nth-child(3) .class-header {
+    background-color: #43e97b;
+}
+.class-card:nth-child(4) .class-header {
+    background-color: #ffc371;
+}
+.class-card:nth-child(5) .class-header {
+    background-color: #845ec2;
+}
+.class-card:nth-child(6) .class-header {
+    background-color: #ffdd00;
+}
+
 .class-header {
     padding: 1.5rem;
     color: white;
@@ -96,12 +104,6 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #ff6ec7, #ffdd00, #4facfe, #43e97b, #38f9d7, #845ec2);
-    background-size: 600% 600%;
-    animation: rainbowFlow 15s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .class-content {
