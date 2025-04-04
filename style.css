@@ -40,8 +40,7 @@ body {
     letter-spacing: 1px;
     text-align: center;
     margin-top: 2rem;
-    background: rgb(66,66,181);
-background: radial-gradient(circle, rgba(66,66,181,1) 14%, rgba(133,134,173,0.08915304606240715) 84%);
+    background: linear-gradient(90deg, #888, #4b5dff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,37 +88,60 @@ background: radial-gradient(circle, rgba(66,66,181,1) 14%, rgba(133,134,173,0.08
 .class-card:nth-child(1) .class-header {
     background: linear-gradient(270deg, #ff6ec7, #ffdd00);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 16s ease infinite;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 .class-card:nth-child(2) .class-header {
     background: linear-gradient(270deg, #4facfe, #43e97b);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 18s ease infinite;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 .class-card:nth-child(3) .class-header {
     background: linear-gradient(270deg, #38f9d7, #845ec2);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 20s ease infinite;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 .class-card:nth-child(4) .class-header {
     background: linear-gradient(270deg, #ffc371, #ff6ec7);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 22s ease infinite;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 .class-card:nth-child(5) .class-header {
     background: linear-gradient(270deg, #845ec2, #43e97b);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 24s ease infinite;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 .class-card:nth-child(6) .class-header {
     background: linear-gradient(270deg, #ffdd00, #4facfe);
     background-size: 400% 400%;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
     animation: slideBg 26s ease infinite;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .class-header {
     padding: 1.5rem;
-    color: white;
     font-size: 1.2rem;
     font-weight: 600;
     display: flex;
