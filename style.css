@@ -1,17 +1,15 @@
-/* Skaphysics - Modern CSS Styles */
+
+/* Skaphysics - Final Modern CSS with Gradient Physics Colors and Unified Header */
 
 :root {
-    /* Updated color palette with more subtle, professional tones */
-    --primary: #4285f4;
-    --secondary: #34a853;
+    --primary: #ff6ec7;
+    --secondary: #4facfe;
     --dark: #0f0f0f;
     --light: #1c1c1c;
     --text: #f5f5f5;
     --text-secondary: #bdbdbd;
-    --accent: #ea4335;
+    --accent: #ffc371;
     --transition-speed: 0.25s;
-    
-    /* Added new variables for more consistent styling */
     --border-radius: 12px;
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
@@ -35,67 +33,31 @@ body {
 }
 
 header {
-    background-color: var(--dark);
-    color: white;
+    background-color: var(--light);
+    color: var(--text);
     padding: 3rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 .logo {
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 1px;
-    position: relative;
-    z-index: 2;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 400% 400%;
+    animation: rainbowFlow 10s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.logo::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 8px;
-    animation: pulse 3s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0% { width: 30px; opacity: 1; }
-    50% { width: 80px; opacity: 0.7; }
-    100% { width: 30px; opacity: 1; }
-}
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.5;
-}
-
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.2;
-    filter: blur(1px);
-    animation: float 20s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-100vh) rotate(360deg); }
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -132,7 +94,6 @@ header {
 
 .class-header {
     padding: 1.5rem;
-    background-color: var(--primary);
     color: white;
     font-size: 1.2rem;
     font-weight: 600;
@@ -141,34 +102,17 @@ header {
     align-items: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(90deg, #ff6ec7, #ffdd00, #4facfe, #43e97b, #38f9d7, #845ec2);
+    background-size: 600% 600%;
+    animation: rainbowFlow 15s ease infinite;
 }
 
-.class-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-}
-
-/* Updated color schemes with gradients */
-.physics1 .class-header { 
-    background: linear-gradient(135deg, #4285f4 0%, #2b77e5 100%);
-}
-.ap-physics1 .class-header { 
-    background: linear-gradient(135deg, #34a853 0%, #2a8d44 100%);
-}
-.ap-physics2 .class-header { 
-    background: linear-gradient(135deg, #ea4335 0%, #d33426 100%);
-}
-.ap-physics-c-mech .class-header { 
-    background: linear-gradient(135deg, #9b59b6 0%, #8048a8 100%);
-}
-.ap-physics-c-em .class-header { 
-    background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
-}
+/* Individual class color overlays (subtle variation if needed later) */
+.physics1 .class-header {}
+.ap-physics1 .class-header {}
+.ap-physics2 .class-header {}
+.ap-physics-c-mech .class-header {}
+.ap-physics-c-em .class-header {}
 
 .class-content {
     max-height: 0;
@@ -257,49 +201,34 @@ header {
     transform: rotate(180deg);
 }
 
-.waves {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231c1c1c' fill-opacity='1' d='M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,224C840,245,960,267,1080,261.3C1200,256,1320,224,1380,208L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* Added smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Added responsive improvements */
 @media (max-width: 768px) {
     .classes-container {
         grid-template-columns: 1fr;
     }
-    
+
     .container {
         padding: 2rem 1.5rem;
     }
-    
+
     .logo {
         font-size: 2.2rem;
     }
-    
+
     header {
         padding: 2.5rem 1.5rem;
     }
 }
 
-/* Added focus styles for accessibility */
 .class-card:focus-within,
 .unit-header:focus {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
 
-/* Optional: Add animations for content appearance */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
