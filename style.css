@@ -40,7 +40,11 @@ body {
     letter-spacing: 1px;
     text-align: center;
     margin-top: 2rem;
-    color: var(--text);
+    background: linear-gradient(90deg, #888, #4b5dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 .container {
@@ -75,23 +79,41 @@ body {
     background-color: var(--card-hover-bg);
 }
 
+@keyframes slideBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .class-card:nth-child(1) .class-header {
-    background-color: #ff6ec7;
+    background: linear-gradient(270deg, #ff6ec7, #ffdd00);
+    background-size: 400% 400%;
+    animation: slideBg 16s ease infinite;
 }
 .class-card:nth-child(2) .class-header {
-    background-color: #4facfe;
+    background: linear-gradient(270deg, #4facfe, #43e97b);
+    background-size: 400% 400%;
+    animation: slideBg 18s ease infinite;
 }
 .class-card:nth-child(3) .class-header {
-    background-color: #43e97b;
+    background: linear-gradient(270deg, #38f9d7, #845ec2);
+    background-size: 400% 400%;
+    animation: slideBg 20s ease infinite;
 }
 .class-card:nth-child(4) .class-header {
-    background-color: #ffc371;
+    background: linear-gradient(270deg, #ffc371, #ff6ec7);
+    background-size: 400% 400%;
+    animation: slideBg 22s ease infinite;
 }
 .class-card:nth-child(5) .class-header {
-    background-color: #845ec2;
+    background: linear-gradient(270deg, #845ec2, #43e97b);
+    background-size: 400% 400%;
+    animation: slideBg 24s ease infinite;
 }
 .class-card:nth-child(6) .class-header {
-    background-color: #ffdd00;
+    background: linear-gradient(270deg, #ffdd00, #4facfe);
+    background-size: 400% 400%;
+    animation: slideBg 26s ease infinite;
 }
 
 .class-header {
