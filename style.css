@@ -1,5 +1,4 @@
-
-/* Skaphysics - Final Modern CSS with Gradient Physics Colors and Unified Header */
+/* Skaphysics - ADA-friendly CSS with unified background and no separate header */
 
 :root {
     --primary: #ff6ec7;
@@ -15,6 +14,9 @@
     --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     --card-bg: #252525;
     --card-hover-bg: #2d2d2d;
+    --link: #ffd700;
+    --link-hover: #ffffff;
+    --link-bg-hover: #444;
 }
 
 * {
@@ -32,20 +34,12 @@ body {
     font-weight: 400;
 }
 
-header {
-    background-color: var(--light);
-    color: var(--text);
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: none;
-}
-
 .logo {
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 1px;
+    text-align: center;
+    margin-top: 2rem;
     background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet);
     background-size: 400% 400%;
     animation: rainbowFlow 10s ease infinite;
@@ -106,13 +100,6 @@ header {
     background-size: 600% 600%;
     animation: rainbowFlow 15s ease infinite;
 }
-
-/* Individual class color overlays (subtle variation if needed later) */
-.physics1 .class-header {}
-.ap-physics1 .class-header {}
-.ap-physics2 .class-header {}
-.ap-physics-c-mech .class-header {}
-.ap-physics-c-em .class-header {}
 
 .class-content {
     max-height: 0;
@@ -176,6 +163,18 @@ header {
     border-left: 3px solid var(--primary);
 }
 
+.resource-item a {
+    color: var(--link);
+    text-decoration: underline;
+}
+
+.resource-item a:hover,
+.resource-item a:focus {
+    color: var(--link-hover);
+    background-color: var(--link-bg-hover);
+    outline: 2px solid var(--accent);
+}
+
 .resource-icon {
     margin-right: 12px;
     width: 20px;
@@ -216,10 +215,6 @@ html {
 
     .logo {
         font-size: 2.2rem;
-    }
-
-    header {
-        padding: 2.5rem 1.5rem;
     }
 }
 
