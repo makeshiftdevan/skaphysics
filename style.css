@@ -1,0 +1,311 @@
+/* Skaphysics - Modern CSS Styles */
+
+:root {
+    /* Updated color palette with more subtle, professional tones */
+    --primary: #4285f4;
+    --secondary: #34a853;
+    --dark: #0f0f0f;
+    --light: #1c1c1c;
+    --text: #f5f5f5;
+    --text-secondary: #bdbdbd;
+    --accent: #ea4335;
+    --transition-speed: 0.25s;
+    
+    /* Added new variables for more consistent styling */
+    --border-radius: 12px;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    --card-bg: #252525;
+    --card-hover-bg: #2d2d2d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+header {
+    background-color: var(--dark);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { width: 30px; opacity: 1; }
+    50% { width: 80px; opacity: 0.7; }
+    100% { width: 30px; opacity: 1; }
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    filter: blur(1px);
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.classes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.class-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform var(--transition-speed), 
+                box-shadow var(--transition-speed),
+                background-color var(--transition-speed);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.class-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+    background-color: var(--card-hover-bg);
+}
+
+.class-header {
+    padding: 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.class-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+/* Updated color schemes with gradients */
+.physics1 .class-header { 
+    background: linear-gradient(135deg, #4285f4 0%, #2b77e5 100%);
+}
+.ap-physics1 .class-header { 
+    background: linear-gradient(135deg, #34a853 0%, #2a8d44 100%);
+}
+.ap-physics2 .class-header { 
+    background: linear-gradient(135deg, #ea4335 0%, #d33426 100%);
+}
+.ap-physics-c-mech .class-header { 
+    background: linear-gradient(135deg, #9b59b6 0%, #8048a8 100%);
+}
+.ap-physics-c-em .class-header { 
+    background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+}
+
+.class-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.class-card.active .class-content {
+    max-height: 2000px;
+}
+
+.units-list {
+    list-style: none;
+}
+
+.unit-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+}
+
+.unit-header {
+    padding: 1.2rem 1.5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.unit-header:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.unit-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.unit-item.active .unit-content {
+    max-height: 600px;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.resource-item {
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    transition: all var(--transition-speed);
+    border-left: 3px solid transparent;
+}
+
+.resource-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--primary);
+}
+
+.resource-icon {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+.active > .unit-header > .arrow,
+.active > .class-header > .arrow {
+    transform: rotate(180deg);
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231c1c1c' fill-opacity='1' d='M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,224C840,245,960,267,1080,261.3C1200,256,1320,224,1380,208L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Added smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Added responsive improvements */
+@media (max-width: 768px) {
+    .classes-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 2.2rem;
+    }
+    
+    header {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+/* Added focus styles for accessibility */
+.class-card:focus-within,
+.unit-header:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Optional: Add animations for content appearance */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.class-card.active .units-list,
+.unit-item.active .resources-list {
+    animation: fadeIn 0.4s ease-out forwards;
+}
