@@ -99,6 +99,9 @@ body {
     background: linear-gradient(90deg, #ff6ec7, #ffdd00, #4facfe, #43e97b, #38f9d7, #845ec2);
     background-size: 600% 600%;
     animation: rainbowFlow 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .class-content {
