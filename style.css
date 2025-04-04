@@ -35,7 +35,7 @@ body {
 }
 
 header {
-    background-color: var(--light);
+    background-color: var(--dark);
     color: white;
     padding: 3rem 2rem;
     text-align: center;
@@ -155,24 +155,19 @@ header {
 
 /* Updated color schemes with gradients */
 .physics1 .class-header { 
-    background: rgb(63,94,251);
-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    background: linear-gradient(135deg, #4285f4 0%, #2b77e5 100%);
 }
 .ap-physics1 .class-header { 
-    background: rgb(220,102,9);
-background: radial-gradient(circle, rgba(220,102,9,1) 0%, rgba(9,9,255,1) 100%);
+    background: linear-gradient(135deg, #34a853 0%, #2a8d44 100%);
 }
 .ap-physics2 .class-header { 
-    background: rgb(220,9,182);
-background: radial-gradient(circle, rgba(220,9,182,1) 0%, rgba(219,89,10,1) 100%);
+    background: linear-gradient(135deg, #ea4335 0%, #d33426 100%);
 }
 .ap-physics-c-mech .class-header { 
-    background: rgb(9,40,220);
-background: radial-gradient(circle, rgba(9,40,220,1) 0%, rgba(219,89,10,1) 100%);
+    background: linear-gradient(135deg, #9b59b6 0%, #8048a8 100%);
 }
 .ap-physics-c-em .class-header { 
-    background: rgb(9,210,220);
-background: radial-gradient(circle, rgba(9,210,220,1) 0%, rgba(3,3,11,1) 100%);
+    background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
 }
 
 .class-content {
