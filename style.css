@@ -43,7 +43,7 @@ body {
     left: 0;
     width: 200%;
     height: 200%;
-    background: url('assets/nebula-background.png') repeat;
+    background: url('nebula-background.png') repeat;
     background-size: cover;
     animation: moveClouds 120s linear infinite, zoomClouds 240s ease-in-out infinite alternate;
     z-index: -1;
