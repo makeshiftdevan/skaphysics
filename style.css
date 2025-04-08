@@ -1,136 +1,44 @@
-:root {
-    --primary: #ff6ec7;
-    --secondary: #4facfe;
-    --dark: #0f0f0f;
-    --light: #1c1c1c;
-    --text: #f5f5f5;
-    --text-secondary: #bdbdbd;
-    --accent: #ffc371;
-    --transition-speed: 0.25s;
-    --border-radius: 16px;
-    --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    --hover-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-    --link: #8ecaff;
-    --link-hover: #ffffff;
-}
-
-* {
+/* === Cosmic Background Animation === */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: url('7fa2089b-6130-4b85-b729-7d6c7d5e2739.png') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text);
     overflow-x: hidden;
-    line-height: 1.6;
-    font-weight: 400;
-    min-height: 100vh;
+    background: black;
+    position: relative;
+    z-index: 0;
 }
 
-/* === Logo === */
-.logo {
-    font-size: 3.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 4rem 0 2rem;
-    color: #ffffff;
+/* Animated background container */
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('assets/nebula-background.png') repeat;
+    background-size: cover;
+    animation: moveClouds 120s linear infinite, zoomClouds 240s ease-in-out infinite alternate;
+    z-index: -1;
+    opacity: 0.6; /* subtle effect behind content */
+    pointer-events: none;
 }
 
-/* === Container Layout === */
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* === Card Grid === */
-.classes-container {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* === Card Style === */
-.class-card {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.class-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--hover-shadow);
-}
-
-/* === Card Header === */
-.class-header {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.class-header img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-/* === Resource List === */
-.resources-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 0.5rem;
-}
-
-.resource-item {
-    font-size: 1rem;
-    padding: 0.5rem 0;
-}
-
-.resource-item a {
-    color: var(--link);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.resource-item a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-}
-
-/* === Responsive Design === */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 2.5rem;
-        margin-top: 2rem;
+/* Horizontal and slight vertical movement */
+@keyframes moveClouds {
+    from {
+        transform: translate(0%, 0%);
     }
-
-    .classes-container {
-        flex-direction: column;
-        align-items: center;
+    to {
+        transform: translate(-10%, -5%);
     }
+}
 
-    .class-card {
-        width: 90%;
+/* Gentle zoom in and out */
+@keyframes zoomClouds {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
     }
 }
