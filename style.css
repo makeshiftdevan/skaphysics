@@ -26,13 +26,47 @@ html {
 }
 
 body {
-    background: url('7fa2089b-6130-4b85-b729-7d6c7d5e2739.png') no-repeat center center fixed;
-    background-size: cover;
+    background: black;
     color: var(--text);
     overflow-x: hidden;
     line-height: 1.6;
     font-weight: 400;
     min-height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+/* === Cosmic Animated Background === */
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('assets/nebula-background.png') repeat;
+    background-size: cover;
+    animation: moveClouds 120s linear infinite, zoomClouds 240s ease-in-out infinite alternate;
+    z-index: -1;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@keyframes moveClouds {
+    from {
+        transform: translate(0%, 0%);
+    }
+    to {
+        transform: translate(-10%, -5%);
+    }
+}
+
+@keyframes zoomClouds {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
 }
 
 /* === Logo === */
