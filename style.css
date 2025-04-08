@@ -1,20 +1,20 @@
 :root {
   --primary: #ff6ec7;
   --secondary: #4facfe;
-  --dark: #0f0f0f;
-  --light: #1c1c1c;
-  --text: #f5f5f5;
-  --text-secondary: #bdbdbd;
+  --dark: #0a0a0a;
+  --light: #0f0f1a;
+  --text: #f8f8ff;
+  --text-secondary: #a0a0b2;
   --accent: #ffc371;
-  --transition-speed: 0.25s;
-  --border-radius: 12px;
-  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  --card-bg: #252525;
-  --card-hover-bg: #2d2d2d;
+  --transition-speed: 0.3s;
+  --border-radius: 16px;
+  --card-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  --hover-shadow: 0 0 60px rgba(255, 255, 255, 0.2);
+  --card-bg: rgba(30, 30, 50, 0.4);
+  --card-hover-bg: rgba(40, 40, 70, 0.5);
   --link: #ffd700;
   --link-hover: #ffffff;
-  --link-bg-hover: #444;
+  --link-bg-hover: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -25,31 +25,39 @@
 }
 
 body {
-  background: linear-gradient(270deg, #1e1e3f, #2d234d, #141e30, #0f2027);
-  background-size: 800% 800%;
-  animation: animatedBackground 60s ease infinite;
+  background: linear-gradient(130deg, #0a0a1f, #150d36, #1c0c4c);
+  background-size: 600% 600%;
+  animation: bgMove 40s ease infinite;
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.6;
   font-weight: 400;
-  position: relative;
-  min-height: 100vh;
 }
 
-@keyframes animatedBackground {
+@keyframes bgMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 .logo {
-  font-size: 2.8rem;
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-align: center;
   margin-top: 2rem;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(270deg, #4facfe, #ff6ec7, #43e97b);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -71,6 +79,7 @@ body {
   background: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
   overflow: hidden;
   transition: transform var(--transition-speed), 
               box-shadow var(--transition-speed),
@@ -78,64 +87,31 @@ body {
   cursor: pointer;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  z-index: 1;
 }
 
 .class-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   box-shadow: var(--hover-shadow);
   background-color: var(--card-hover-bg);
 }
 
-@keyframes slideBg {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .class-card .class-header {
-  background-size: 400% 400%;
-  background-position: 0% 50%;
-  background-repeat: no-repeat;
-  animation: slideBg 20s ease infinite;
-  color: #000 !important;
-  text-shadow: none !important;
-}
-
-.class-card:nth-child(1) .class-header {
-  background: linear-gradient(270deg, #ff6ec7, #ffdd00);
-}
-.class-card:nth-child(2) .class-header {
-  background: linear-gradient(270deg, #4facfe, #43e97b);
-}
-.class-card:nth-child(3) .class-header {
-  background: linear-gradient(270deg, #38f9d7, #845ec2);
-}
-.class-card:nth-child(4) .class-header {
-  background: linear-gradient(270deg, #ffc371, #ff6ec7);
-}
-.class-card:nth-child(5) .class-header {
-  background: linear-gradient(270deg, #845ec2, #43e97b);
-}
-.class-card:nth-child(6) .class-header {
-  background: linear-gradient(270deg, #ffdd00, #4facfe);
-}
-
-.class-header {
   padding: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(270deg, #ff6ec7, #ffc371, #845ec2);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #fff;
 }
 
 .class-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.4s ease;
 }
 
 .class-card.active .class-content {
@@ -168,7 +144,7 @@ body {
 .unit-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.4s ease;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -265,7 +241,7 @@ html {
   animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* ✨ Particle background styling */
+/* Particle background styling */
 #particles {
   position: fixed;
   top: 0;
@@ -285,10 +261,6 @@ html {
 }
 
 @keyframes float {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
 }
