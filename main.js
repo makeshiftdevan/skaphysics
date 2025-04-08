@@ -3,6 +3,13 @@
 // Create floating particles for physics effect
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
+    
+    // Add error checking to prevent the error
+    if (!particlesContainer) {
+        console.warn("Particles container not found in the DOM.");
+        return; // Exit the function if the element doesn't exist
+    }
+    
     const numParticles = 30;
     
     for (let i = 0; i < numParticles; i++) {
@@ -78,8 +85,11 @@ function setupUnitItems() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    createParticles();
+    // Make sure the particles div exists in the DOM before trying to access it
+    setTimeout(() => {
+        createParticles();
+    }, 100); // Small delay to ensure all elements are rendered
+    
     setupClassCards();
     setupUnitItems();
 });
-
