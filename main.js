@@ -3,36 +3,33 @@
 // Create floating particles for physics effect
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
-    
-    // Add error checking to prevent the error
-    if (!particlesContainer) {
-        console.warn("Particles container not found in the DOM.");
-        return; // Exit the function if the element doesn't exist
-    }
-    
     const numParticles = 30;
-    
+    const colors = ['#ff6ec7', '#4facfe', '#ffc371', '#845ec2'];
+
     for (let i = 0; i < numParticles; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
+
         const size = Math.random() * 20 + 5;
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
         const speed = Math.random() * 15 + 5;
         const delay = Math.random() * 10;
-        
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.left = `${posX}%`;
         particle.style.top = `${posY}%`;
-        particle.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
+        particle.style.backgroundColor = color;
+        particle.style.boxShadow = `0 0 12px ${color}`;
         particle.style.animationDuration = `${speed}s`;
         particle.style.animationDelay = `${delay}s`;
-        
+
         particlesContainer.appendChild(particle);
     }
 }
+
 
 // Toggle class card opening/closing
 function setupClassCards() {
