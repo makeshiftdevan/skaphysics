@@ -1,92 +1,73 @@
-// Skaphysics - Main JavaScript Functions
+document.querySelectorAll('.class-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const card = header.parentElement;
+        card.classList.toggle('active');
+    });
+});
 
-// Create floating particles for physics effect
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const numParticles = 30;
-    const colors = ['#ff6ec7', '#4facfe', '#ffc371', '#845ec2'];
+function createLessonItems(className, unitNum) {
+    const lessonItems = [];
+    for (let lesson = 1; lesson <= 5; lesson++) {
+        const resourceList = document.createElement('ul');
+        resourceList.className = 'resources-list';
+        const resources = ['Investigations', 'Notes', 'PPT', 'Video', 'Practice Problems', 'Concept Builders', 'Phet'];
+        const icons = ['📝','📒','📊','🎬','⚙️','🧠','🔬'];
+        resources.forEach((res, i) => {
+            const li = document.createElement('li');
+            li.className = 'resource-item';
+            li.innerHTML = `<div class="resource-icon">${icons[i]}</div>${res}`;
+            li.onclick = () => window.location.href = `/${className}/unit${unitNum}/lesson${lesson}/${res.toLowerCase().replace(/ /g, '-')}`;
+            resourceList.appendChild(li);
+        });
+        const unitContent = document.createElement('div');
+        unitContent.className = 'unit-content';
+        unitContent.appendChild(resourceList);
 
-    for (let i = 0; i < numParticles; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
+        const unitHeader = document.createElement('div');
+        unitHeader.className = 'unit-header';
+        unitHeader.innerHTML = `Lesson ${lesson} <div class="arrow">▼</div>`;
+        unitHeader.onclick = () => unitItem.classList.toggle('active');
 
-        const size = Math.random() * 20 + 5;
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        const speed = Math.random() * 15 + 5;
-        const delay = Math.random() * 10;
-        const color = colors[Math.floor(Math.random() * colors.length)];
+        const unitItem = document.createElement('li');
+        unitItem.className = 'unit-item';
+        unitItem.appendChild(unitHeader);
+        unitItem.appendChild(unitContent);
 
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.top = `${posY}%`;
-        particle.style.backgroundColor = color;
-        particle.style.boxShadow = `0 0 12px ${color}`;
-        particle.style.animationDuration = `${speed}s`;
-        particle.style.animationDelay = `${delay}s`;
-
-        particlesContainer.appendChild(particle);
+        lessonItems.push(unitItem);
     }
+    return lessonItems;
 }
 
+const classMap = {
+    'physics1': 'Physics 1',
+    'ap-physics1': 'AP Physics 1',
+    'ap-physics2': 'AP Physics 2',
+    'ap-physics-c-mech': 'AP Physics C: Mech',
+    'ap-physics-c-em': 'AP Physics C: E&M'
+};
 
-// Toggle class card opening/closing
-function setupClassCards() {
-    const classCards = document.querySelectorAll('.class-card');
+Object.keys(classMap).forEach(classKey => {
+    const classCard = document.querySelector(`.${classKey} .units-list`);
+    for (let unit = 1; unit <= 12; unit++) {
+        const unitItem = document.createElement('li');
+        unitItem.className = 'unit-item';
 
-    classCards.forEach(card => {
-        const header = card.querySelector('.class-header');
+        const unitHeader = document.createElement('div');
+        unitHeader.className = 'unit-header';
+        unitHeader.innerHTML = `Unit ${unit}: Topic <div class="arrow">▼</div>`;
+        unitHeader.onclick = () => unitItem.classList.toggle('active');
 
-        header.addEventListener('click', () => {
-            const isActive = card.classList.contains('active');
+        const unitContent = document.createElement('div');
+        unitContent.className = 'unit-content';
 
-            // Remove 'active' from all cards
-            classCards.forEach(c => c.classList.remove('active'));
+        const lessonList = document.createElement('ul');
+        lessonList.className = 'resources-list';
 
-            // Only toggle the clicked one if it wasn't already active
-            if (!isActive) {
-                card.classList.add('active');
-            }
-        });
-    });
-}
+        createLessonItems(classKey, unit).forEach(lesson => lessonList.appendChild(lesson));
 
-// Toggle unit opening/closing
-function setupUnitItems() {
-    const unitItems = document.querySelectorAll('.unit-item');
-
-    unitItems.forEach(item => {
-        const header = item.querySelector('.unit-header');
-
-        header.addEventListener('click', (e) => {
-            e.stopPropagation();
-
-            const parentList = item.closest('.units-list');
-            const siblingItems = parentList.querySelectorAll('.unit-item');
-
-            const isActive = item.classList.contains('active');
-
-            // Collapse all sibling units
-            siblingItems.forEach(siblingItem => {
-                siblingItem.classList.remove('active');
-            });
-
-            // Only activate if it wasn't already active
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-}
-
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Make sure the particles div exists in the DOM before trying to access it
-    setTimeout(() => {
-        createParticles();
-    }, 100); // Small delay to ensure all elements are rendered
-    
-    setupClassCards();
-    setupUnitItems();
+        unitContent.appendChild(lessonList);
+        unitItem.appendChild(unitHeader);
+        unitItem.appendChild(unitContent);
+        classCard.appendChild(unitItem);
+    }
 });
