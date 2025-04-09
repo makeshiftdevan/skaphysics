@@ -1,92 +1,30 @@
-
 // Toggle Class Card (only one open at a time)
 document.querySelectorAll('.class-header').forEach(header => {
-    header.addEventListener('click', () => {
-        document.querySelectorAll('.class-card').forEach(card => {
-            if (card !== header.parentElement) card.classList.remove('active');
-        });
-        header.parentElement.classList.toggle('active');
+  header.addEventListener('click', () => {
+    document.querySelectorAll('.class-card').forEach(card => {
+      if (card !== header.parentElement) {
+        card.classList.remove('active');
+      }
     });
+    header.parentElement.classList.toggle('active');
+  });
 });
 
-// Function to create lesson items inside a unit
-function createLessonItems(className, unitNum) {
-    const lessonItems = [];
-    for (let lesson = 1; lesson <= 5; lesson++) {
-        const resourceList = document.createElement('ul');
-        resourceList.className = 'resources-list';
-        const resources = ['Investigations', 'Notes', 'PPT', 'Video', 'Practice Problems', 'Concept Builders', 'Phet'];
-        const icons = ['📝','📒','📊','🎬','⚙️','🧠','🔬'];
-        resources.forEach((res, i) => {
-            const li = document.createElement('li');
-            li.className = 'resource-item';
-            li.innerHTML = `<div class="resource-icon">${icons[i]}</div>${res}`;
-            li.onclick = () => window.location.href = `/${className}/unit${unitNum}/lesson${lesson}/${res.toLowerCase().replace(/ /g, '-')}`;
-            resourceList.appendChild(li);
-        });
-        const unitContent = document.createElement('div');
-        unitContent.className = 'unit-content';
-        unitContent.appendChild(resourceList);
+// Toggle Units Inside Each Class (only one open per class)
+document.querySelectorAll('.units-list').forEach(unitsList => {
+  const unitHeaders = unitsList.querySelectorAll('.unit-header');
+  unitHeaders.forEach(header => {
+    header.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const unitItem = header.parentElement;
 
-        const unitHeader = document.createElement('div');
-        unitHeader.className = 'unit-header';
-        unitHeader.innerHTML = `Lesson ${lesson} <div class="arrow">▼</div>`;
-        unitHeader.onclick = () => {
-            const siblingLessons = unitItem.parentElement.querySelectorAll('.unit-item');
-            siblingLessons.forEach(sib => {
-                if (sib !== unitItem) sib.classList.remove('active');
-            });
-            unitItem.classList.toggle('active');
-        };
+      unitsList.querySelectorAll('.unit-item').forEach(item => {
+        if (item !== unitItem) {
+          item.classList.remove('active');
+        }
+      });
 
-        const unitItem = document.createElement('li');
-        unitItem.className = 'unit-item';
-        unitItem.appendChild(unitHeader);
-        unitItem.appendChild(unitContent);
-
-        lessonItems.push(unitItem);
-    }
-    return lessonItems;
-}
-
-// Map for class names
-const classMap = {
-    'physics1': 'Physics 1',
-    'ap-physics1': 'AP Physics 1',
-    'ap-physics2': 'AP Physics 2',
-    'ap-physics-c-mech': 'AP Physics C: Mech',
-    'ap-physics-c-em': 'AP Physics C: E&M'
-};
-
-// Dynamically add units to each class card
-Object.keys(classMap).forEach(classKey => {
-    const classCard = document.querySelector(`.${classKey} .units-list`);
-    for (let unit = 1; unit <= 12; unit++) {
-        const unitItem = document.createElement('li');
-        unitItem.className = 'unit-item';
-
-        const unitHeader = document.createElement('div');
-        unitHeader.className = 'unit-header';
-        unitHeader.innerHTML = `Unit ${unit}: Topic <div class="arrow">▼</div>`;
-        unitHeader.onclick = () => {
-            const siblingUnits = unitItem.parentElement.querySelectorAll('.unit-item');
-            siblingUnits.forEach(sib => {
-                if (sib !== unitItem) sib.classList.remove('active');
-            });
-            unitItem.classList.toggle('active');
-        };
-
-        const unitContent = document.createElement('div');
-        unitContent.className = 'unit-content';
-
-        const lessonList = document.createElement('ul');
-        lessonList.className = 'resources-list';
-
-        createLessonItems(classKey, unit).forEach(lesson => lessonList.appendChild(lesson));
-
-        unitContent.appendChild(lessonList);
-        unitItem.appendChild(unitHeader);
-        unitItem.appendChild(unitContent);
-        classCard.appendChild(unitItem);
-    }
+      unitItem.classList.toggle('active');
+    });
+  });
 });
