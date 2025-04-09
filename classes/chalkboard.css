@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Neue", "Chalkboard", sans-serif;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Green_Chalkboard.svg/1280px-Green_Chalkboard.svg.png') center/cover no-repeat fixed;
+  color: white;
+}
+.chalk-header {
+  text-align: center;
+  padding: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 1px 1px #222;
+  border-bottom: 2px solid white;
+}
+.chalk-content {
+  padding: 2rem;
+  max-width: 100%;
+}
+.units-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.unit {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+.unit h2 {
+  font-size: 2rem;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.5rem;
+}
+.lessons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.lesson {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border: 1px dashed white;
+  border-radius: 8px;
+}
+.lesson h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.assignments {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+}
+.assignments a {
+  color: #fff;
+  text-decoration: none;
+}
+.assignments a:hover {
+  text-decoration: underline;
+  color: #ffc;
+}
+
