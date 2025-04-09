@@ -1,3 +1,4 @@
+
 :root {
     --primary: #ff6ec7;
     --secondary: #4facfe;
@@ -11,9 +12,8 @@
     --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     --hover-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
     --link: #8ecaff;
-    --link-hover: #ffffff; 
+    --link-hover: #ffffff;
 }
-
 
 * {
     margin: 0;
@@ -53,40 +53,31 @@ body {
 }
 
 @keyframes moveClouds {
-    from {
-        transform: translate(0%, 0%);
-    }
-    to {
-        transform: translate(-10%, -5%);
-    }
+    from { transform: translate(0%, 0%); }
+    to { transform: translate(-10%, -5%); }
 }
 
 @keyframes zoomClouds {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.08);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
 }
 
 /* === Logo === */
 .logo {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     text-align: center;
     margin: 4rem 0 2rem;
     color: #ffffff;
 }
 
-/* === Container Layout === */
+/* === Layout === */
 .container {
     max-width: 1300px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* === Card Grid === */
 .classes-container {
     display: flex;
     gap: 2rem;
@@ -104,8 +95,8 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .class-card:hover {
@@ -113,7 +104,6 @@ body {
     box-shadow: var(--hover-shadow);
 }
 
-/* === Card Header === */
 .class-header {
     font-size: 1.4rem;
     font-weight: 600;
@@ -122,15 +112,18 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    text-align: center;
+    cursor: pointer;
 }
 
 .class-header img {
     width: 60px;
     height: 60px;
     object-fit: contain;
+    margin-bottom: 0.5rem;
 }
 
-/* === Resource List === */
+/* === Resource List & Units === */
 .resources-list {
     list-style: none;
     padding-left: 0;
@@ -153,6 +146,44 @@ body {
     text-decoration: underline;
 }
 
+/* === Expand/Collapse Logic === */
+.units-list {
+    display: none;
+    transition: all 0.3s ease;
+}
+.class-card.active .units-list {
+    display: block;
+}
+
+.unit-content {
+    display: none;
+    transition: all 0.3s ease;
+}
+.unit-item.active .unit-content {
+    display: block;
+}
+
+/* === Arrow Rotation === */
+.unit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: background-color 0.2s ease;
+}
+.unit-header:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.unit-header .arrow {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+.unit-item.active .unit-header .arrow {
+    transform: rotate(180deg);
+}
+
 /* === Responsive Design === */
 @media (max-width: 768px) {
     .logo {
@@ -168,22 +199,4 @@ body {
     .class-card {
         width: 90%;
     }
-}
-
-/* Collapse by default */
-.unit-content {
-    display: none;
-}
-
-/* Expand when .active is present */
-.unit-item.active .unit-content {
-    display: block;
-}
-
-.class-card .units-list {
-    display: none;
-}
-
-.class-card.active .units-list {
-    display: block;
 }
