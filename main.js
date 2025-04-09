@@ -96,3 +96,15 @@ document.querySelectorAll('.unit-content').forEach(unitContent => {
     });
   });
 });
+
+
+// Subtle mouse-based parallax effect
+document.addEventListener('mousemove', (e) => {
+  const bg = document.getElementById('animated-bg');
+  if (!bg) return;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;  // Range: -5 to 5
+  const y = (e.clientY / window.innerHeight - 0.5) * 10; // Range: -5 to 5
+
+  bg.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+});
