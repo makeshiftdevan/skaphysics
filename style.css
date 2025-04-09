@@ -204,3 +204,16 @@ body {
 .lesson-item.active .lesson-header .arrow {
     transform: rotate(180deg);
 }
+
+
+/* === Unit and Lesson Collapsing === */
+.unit-content,
+.lesson-content {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.unit-item.active > .unit-content,
+.lesson-item.active > .lesson-content {
+    display: block;
+}
