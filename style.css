@@ -169,3 +169,21 @@ body {
         width: 90%;
     }
 }
+
+/* Collapse by default */
+.unit-content {
+    display: none;
+}
+
+/* Expand when .active is present */
+.unit-item.active .unit-content {
+    display: block;
+}
+
+.class-card .units-list {
+    display: none;
+}
+
+.class-card.active .units-list {
+    display: block;
+}
