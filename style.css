@@ -11,7 +11,7 @@
     --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     --hover-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
     --link: #8ecaff;
-    --link-hover: #ffffff;
+    --link-hover: #ffffff; 
 }
 
 * {
