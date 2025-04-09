@@ -200,9 +200,9 @@ body {
 
 /* === Resource List === */
 .resources-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 
 .resource-item {
