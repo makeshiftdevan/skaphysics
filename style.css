@@ -1,30 +1,66 @@
+/* GENERAL BODY STYLING */
 body {
-  background: #000;
-  color: #fff;
-  font-family: sans-serif;
-  background: url('assets/nebula-background.png') center/cover no-repeat fixed;
+  margin: 0;
+  padding: 0;
+  font-family: "Chalkduster", "Comic Neue", sans-serif;
+  background: url('assets/chalkboard.png') center center / cover no-repeat fixed;
+  color: white;
+  min-height: 100vh;
 }
-.logo {
+
+/* HEADER STYLING */
+.main-header {
   text-align: center;
-  font-size: 2rem;
-  margin: 2rem 0;
+  padding: 3rem 1rem 1rem;
+  text-shadow: 1px 1px #222;
 }
-.classes-container {
+
+.main-header h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.main-header .tagline {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #ddd;
+}
+
+/* CARD GRID LAYOUT */
+.card-grid {
   display: grid;
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
 }
+
+/* CLASS CARD STYLING */
 .class-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid #ffffff22;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
   text-decoration: none;
   color: white;
-  background: #222;
-  padding: 1rem;
-  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.class-card img {
-  width: 40px;
-  height: 40px;
+
+.class-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+.class-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.class-card p {
+  font-size: 1rem;
+  color: #ccc;
 }
