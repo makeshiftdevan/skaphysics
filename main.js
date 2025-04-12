@@ -7,6 +7,7 @@ function toggleActive(element) {
       child.classList.remove('active');
     }
   });
+  
 
   parent.classList.toggle('active', !isActive);
 }
