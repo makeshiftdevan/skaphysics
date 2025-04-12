@@ -50,6 +50,11 @@ body {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
+.unit-content,
+.lesson-content {
+  display: none;
+}
+
 .assignments {
   list-style: none;
   padding: 0;
