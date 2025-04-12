@@ -2,6 +2,7 @@ body {
   background: #000;
   color: #fff;
   font-family: sans-serif;
+  background: url('assets/nebula-background.png') center/cover no-repeat fixed;
 }
 .logo {
   text-align: center;
