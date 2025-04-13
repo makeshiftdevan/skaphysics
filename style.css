@@ -3,9 +3,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Chalkduster", "Comic Neue", sans-serif;
-  background: url('assets/chalkboard.png') center center / cover no-repeat fixed;
-  color: white;
+  background: url('assets/nebula-background.png') center/cover no-repeat fixed;  
   min-height: 100vh;
+  color: white;
 }
 
 /* HEADER STYLING */
