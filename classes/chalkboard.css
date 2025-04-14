@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Chalkduster", "Georgia", sans-serif;
-  background: url('/assets/chalkboard.png') center center no-repeat fixed;
+  background: url('assets/chalkboard.png') center center no-repeat fixed;
   background-size: 100% 100%;  
   color: white;
 }
