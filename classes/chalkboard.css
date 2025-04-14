@@ -21,7 +21,7 @@ body {
   border: 1px solid white;
   border-radius: 8px;
   padding: 1rem;
-  background: transparent; 
+  background: rgba(0, 0, 0, 0.09);
 }
 .unit h2 {
   font-size: 1.75rem;
@@ -30,7 +30,7 @@ body {
   cursor: pointer;
   position: sticky;
   top: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
 .lessons {
