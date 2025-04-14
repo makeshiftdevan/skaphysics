@@ -1,40 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Add event listeners to all unit headers
-  document.querySelectorAll(".unit-header").forEach(header => {
-    header.addEventListener("click", () => {
-      toggleActive(header);
+  // Toggle lesson containers
+  document.querySelectorAll(".unit-toggle").forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const lessons = toggle.nextElementSibling;
+      if (lessons && lessons.classList.contains("lessons")) {
+        lessons.classList.toggle("hidden");
+      }
     });
   });
 
-  // Add event listeners to all lesson headers
-  document.querySelectorAll(".lesson-header").forEach(header => {
-    header.addEventListener("click", () => {
-      toggleActive(header);
+  // Toggle assignment containers
+  document.querySelectorAll(".lesson-toggle").forEach(toggle => {
+    toggle.addEventListener("click", () => {
+      const assignments = toggle.nextElementSibling;
+      if (assignments && assignments.classList.contains("assignments")) {
+        assignments.classList.toggle("hidden");
+      }
     });
   });
 });
-
-function toggleActive(element) {
-  const content = element.nextElementSibling;
-  const parent = element.parentElement;
-  const siblings = Array.from(parent.parentElement.children).filter(el => el !== parent);
-
-  // Collapse all sibling content areas
-  siblings.forEach(sibling => {
-    const arrow = sibling.querySelector('.arrow');
-    const sibContent = sibling.querySelector('.unit-content, .lesson-content');
-    if (arrow) arrow.textContent = '▼';
-    if (sibContent) sibContent.style.display = 'none';
-  });
-
-  // Toggle selected content
-  if (content.style.display === 'block') {
-    content.style.display = 'none';
-    const arrow = element.querySelector('.arrow');
-    if (arrow) arrow.textContent = '▼';
-  } else {
-    content.style.display = 'block';
-    const arrow = element.querySelector('.arrow');
-    if (arrow) arrow.textContent = '▲';
-  }
-}
