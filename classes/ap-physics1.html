@@ -1,1361 +1,982 @@
 
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ap Physics1</title>
-  <link href="../style.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AP Physics 1 - Skaphysics</title>
+<link href="chalkboard.css" rel="stylesheet"/>
+<script defer="" src="phys1.js"></script>
 </head>
 <body>
-  <div id="animated-bg"></div>
-  <header>
-    <div class="logo">Ap Physics1</div>
-  </header>
-  <div class="container">
-    <div class="class-card active">
-      <div class="class-header">
-        <img src="../assets/icons/ap1logo.svg" alt="Ap Physics1 Icon">
-        Ap Physics1
-        <div class="arrow">▼</div>
-      </div>
-      <div class="class-content">
-        <ul class="units-list">
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 1
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 2
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 3
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 4
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 5
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 6
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 7
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 8
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 9
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 10
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 11
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="unit-item">
-              <div class="unit-header" onclick="toggleActive(this)">
-                Unit 12
-                <div class="arrow">▼</div>
-              </div>
-              <div class="unit-content">
-                <ul>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 1
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 2
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 3
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 4
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="lesson-item">
-                <div class="lesson-header" onclick="toggleActive(this)">
-                  Lesson 5
-                  <div class="arrow">▼</div>
-                </div>
-                <div class="lesson-content">
-                  <ul class="resources-list">
-                <li class="resource-item"><a href="#">📝 Investigation</a></li>
-                <li class="resource-item"><a href="#">📒 Notes</a></li>
-                <li class="resource-item"><a href="#">📚 Reading</a></li>
-                <li class="resource-item"><a href="#">📊 PowerPoint</a></li>
-                <li class="resource-item"><a href="#">🎬 Video</a></li>
-                <li class="resource-item"><a href="#">🧠 Concept Builders</a></li>
-                <li class="resource-item"><a href="#">⚙️ Problem Set</a></li>
-                <li class="resource-item"><a href="#">📝 FRQ Practice</a></li>
-                <li class="resource-item"><a href="#">🔬 Simulator</a></li>
-                <li class="resource-item"><a href="#">🧪 Practice Test</a></li>
-                  </ul>
-                </div>
-              </li>
-                </ul>
-              </div>
-            </li>        </ul>
-      </div>
-    </div>
-  </div>
-  <script src="../main.js"></script>
+<header class="chalk-header">
+<h1></h1>
+</header>
+<main class="chalk-content">
+<div class="units-container">
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 1</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 2</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 3</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 4</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 5</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 6</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 7</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 8</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 9</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 10</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 11</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+<section class="unit">
+<h2 class="clickable unit-toggle">Unit 12</h2>
+<div class="lessons hidden">
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 1</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 2</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 3</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 4</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+<article class="lesson">
+<h3 class="clickable lesson-toggle">Lesson 5</h3>
+<ul class="assignments hidden">
+<li><a href="#">📝 Investigation</a></li>
+<li><a href="#">📒 Notes</a></li>
+<li><a href="#">📚 Reading</a></li>
+<li><a href="#">📊 PowerPoint</a></li>
+<li><a href="#">🎬 Video</a></li>
+<li><a href="#">🧠 Concept Builders</a></li>
+<li><a href="#">⚙️ Problem Set</a></li>
+<li><a href="#">📝 FRQ Practice</a></li>
+<li><a href="#">🔬 Simulator</a></li>
+<li><a href="#">🧪 Practice Test</a></li>
+<li><a href="#">🧩 Solutions</a></li><li><a href="#">🧩 FRQ Solutions</a></li></ul>
+</article>
+</div>
+</section>
+</div>
+</main>
 </body>
 </html>
