@@ -36,6 +36,10 @@ body {
   border-bottom: 1px solid white;
   padding-bottom: 0.5rem;
   cursor: pointer;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2;
 }
 .lessons {
   display: grid;
@@ -54,6 +58,11 @@ body {
   margin-bottom: 0.5rem;
   cursor: pointer;
 }
+.lesson:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.01);
+  transition: 0.2s ease;
+}
 .assignments {
   list-style: none;
   padding: 0;
@@ -67,6 +76,7 @@ body {
 }
 .assignments a:hover {
   text-decoration: underline;
+  font-size: 0.9rem;
   color: #ffc;
 }
 .hidden {
