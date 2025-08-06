@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Car Physics Motion Simulator with Funny Head</title>
+  <title>Car Physics Simulator with Funny Head</title>
   <style>
     body {
       margin: 0;
@@ -46,11 +46,6 @@
       z-index: 10;
     }
 
-    .driver-head {
-      transform-origin: center;
-      transition: transform 0.1s linear;
-    }
-
     .controls {
       margin-top: 20px;
     }
@@ -63,7 +58,7 @@
   </style>
 </head>
 <body>
-  <h1>🚗 Car Physics Motion Simulator with Funny Head</h1>
+  <h1>🚗 Car Physics Simulator with Funny Head</h1>
 
   <div class="road-container">
     <div class="road"></div>
@@ -87,16 +82,15 @@
       <circle cx="130" cy="50" r="5" fill="#ffff99"/>
       <circle cx="130" cy="58" r="5" fill="#ffff99"/>
       
-      <!-- Funny Oversized Head -->
-      <image class="driver-head"
-        id="driverHead"
-        href="https://raw.githubusercontent.com/makeshiftdevan/skaphysics/main/assets/face.png"
-        x="15"
-        y="20"
-        width="60"
-        height="60"
-        preserveAspectRatio="xMidYMid slice"
-      />
+      <!-- Funny Oversized Head Group (with pivot near chin) -->
+      <g id="headGroup" transform="translate(45, 5)">
+        <!-- pivot point (near chin) is at (30, 55) inside the image -->
+        <image
+          href="https://raw.githubusercontent.com/makeshiftdevan/skaphysics/main/assets/face.png"
+          x="0" y="0" width="60" height="60"
+          preserveAspectRatio="xMidYMid slice"
+        />
+      </g>
     </svg>
   </div>
 
@@ -119,15 +113,15 @@
   <script>
     let animationId;
     let startTime;
-    let position = 0;
 
     function startSimulation() {
       cancelAnimationFrame(animationId);
+
       const v0 = parseFloat(document.getElementById("velocity").value);
       const a = parseFloat(document.getElementById("acceleration").value);
       const duration = parseFloat(document.getElementById("duration").value);
       const car = document.querySelector(".car");
-      const head = document.getElementById("driverHead");
+      const headGroup = document.getElementById("headGroup");
 
       startTime = performance.now();
 
@@ -144,9 +138,9 @@
         const scaledX = 50 + (x * 2) % (roadWidth - 100);
         car.style.left = scaledX + "px";
 
-        // Inertia tilt: head tilts opposite direction of acceleration
-        const tilt = -a * 3; // tweak factor for humor
-        head.setAttribute("transform", `rotate(${tilt}, 45, 50)`); // pivot around center of image
+        // Inertial head tilt (pivot around chin)
+        const tilt = -a * 4; // exaggerate for effect
+        headGroup.setAttribute("transform", `translate(45, 5) rotate(${tilt}, 30, 55)`);
 
         animationId = requestAnimationFrame(animate);
       }
