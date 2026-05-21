@@ -6,6 +6,7 @@ body {
   background: url('../assets/Chalkboard.jpg') center center no-repeat fixed;
   background-size: 100% 100%;
   color: white;
+}
 
 .chalk-content {
   padding: 2rem;
