@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sim">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulations — Skaphysics</title>
+  <meta name="description" content="Interactive physics simulations — explore mechanics, waves, fields, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Skaphysics home">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <g class="atom" stroke="currentColor" stroke-width="2.4" opacity="0.85">
+            <ellipse cx="32" cy="32" rx="26" ry="10" />
+            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(60 32 32)" />
+            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(120 32 32)" />
+          </g>
+          <circle class="nucleus" cx="32" cy="32" r="4.5" />
+        </svg>
+        <span class="brand-text"><span class="word">Skaphysics</span></span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="classes/ap-physics1.html">AP Physics 1</a>
+        <a class="nav-link" href="classes/ap-physics-c-mech.html">AP-C Mech</a>
+        <a class="nav-link" href="classes/ap-physics-c-em.html">AP-C E&amp;M</a>
+        <a class="nav-link" href="classes/physics1.html">Physics 1</a>
+        <a class="nav-link" href="simulations.html">Simulations</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-head">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>Simulations</span>
+      </nav>
+      <div class="page-title">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="14" rx="2"/>
+            <path d="M3 9h18M8 14l2 2 4-4"/>
+          </svg>
+        </span>
+        <div>
+          <p class="kicker">INTERACTIVE · HANDS-ON · LIVE IN BROWSER</p>
+          <h1>Simulations</h1>
+        </div>
+      </div>
+      <p class="page-desc">A growing library of interactive physics sandboxes. Push variables. Watch the universe respond. Each sim opens in a new tab so your work isn't interrupted.</p>
+    </header>
+
+    <section class="sim-grid">
+
+      <a class="sim-card" href="assets/sim/Unit1/index.html" target="_blank" rel="noopener">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 17h18"/>
+            <rect x="5" y="10" width="14" height="5" rx="1.5"/>
+            <circle cx="8" cy="17" r="1.8"/>
+            <circle cx="16" cy="17" r="1.8"/>
+            <path d="M5 10l1.5-3h11L19 10"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Car Kinematics</h3>
+          <p>Adjust initial velocity and acceleration. Watch position, velocity, and time evolve in real time.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">Kinematics</span>
+            <span class="sim-tag">AP 1 · U1</span>
+            <span class="sim-tag">Physics 1</span>
+          </div>
+          <span class="sim-cta">Launch sim →</span>
+        </div>
+      </a>
+
+      <div class="sim-card coming-soon" aria-disabled="true">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19l6-12 4 8 6-6"/><circle cx="10" cy="7" r="1.6"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Projectile Lab</h3>
+          <p>Launch angle, initial speed, gravity. Decompose vectors and trace the parabola.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">2D Motion</span>
+            <span class="sim-tag">AP 1 · U1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-card coming-soon" aria-disabled="true">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="6" width="12" height="12" rx="1"/>
+            <path d="M2 12h4M18 12h4M12 2v4M12 18v4"/>
+            <circle cx="12" cy="12" r="2.5"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Force Vectors</h3>
+          <p>Combine forces on a free body. Resultant updates instantly. Tune masses, friction, angle.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">Dynamics</span>
+            <span class="sim-tag">AP 1 · U2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-card coming-soon" aria-disabled="true">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Wave Workbench</h3>
+          <p>Frequency, amplitude, wavelength, phase. Superpose two waves and watch interference live.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">Waves</span>
+            <span class="sim-tag">AP 1 · U10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-card coming-soon" aria-disabled="true">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 5v-3M12 22v-3M5 12h-3M22 12h-3"/>
+            <path d="M7 7l-2-2M19 19l-2-2M7 17l-2 2M19 5l-2 2"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Electric Field Mapper</h3>
+          <p>Drop charges. Field lines and equipotentials render in real time. Probe with a test charge.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">Electrostatics</span>
+            <span class="sim-tag">AP-C E&amp;M · U1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-card coming-soon" aria-disabled="true">
+        <div class="sim-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <ellipse cx="12" cy="12" rx="9" ry="3.5"/>
+            <circle cx="12" cy="12" r="1.8"/>
+          </svg>
+        </div>
+        <div class="sim-card-body">
+          <h3>Orbital Sandbox</h3>
+          <p>Set initial conditions for a small body around a massive one. Watch ellipses, escape velocities, and L-points.</p>
+          <div class="sim-tags">
+            <span class="sim-tag">Gravitation</span>
+            <span class="sim-tag">AP-C Mech · U8</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Skaphysics</span><span class="dot">·</span><span>Keep asking.</span>
+  </footer>
+</body>
+</html>
