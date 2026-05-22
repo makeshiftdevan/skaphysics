@@ -1,119 +1,157 @@
-/* Skaphysics — shared interactivity */
-
+/* Skaphysics main.js */
 document.addEventListener("DOMContentLoaded", () => {
-  initToggles();
+  markNavActive();
+  initUnitToggles();
   initSearch();
-  initCardCursor();
-  initNavActive();
+  init3DTilt();
+  initEquationLayer();
 });
 
-/* Expand/collapse for units and lessons via .is-open class
-   (CSS uses grid-template-rows 0fr → 1fr for smooth height transition) */
-function initToggles() {
-  document.querySelectorAll(".unit-toggle").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.closest(".unit")?.classList.toggle("is-open");
-    });
-  });
-  document.querySelectorAll(".lesson-toggle").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.closest(".lesson")?.classList.toggle("is-open");
-    });
+/* ---------- Nav active state ---------- */
+function markNavActive() {
+  const here = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-link").forEach(a => {
+    if ((a.getAttribute("href") || "").split("/").pop() === here)
+      a.classList.add("active");
   });
 }
 
-/* Live search across units & lessons */
+/* ---------- Unit accordion ---------- */
+function initUnitToggles() {
+  document.querySelectorAll(".unit-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.closest(".unit").classList.toggle("is-open");
+    });
+  });
+
+  const expandAll  = document.querySelector("[data-expand]");
+  const collapseAll = document.querySelector("[data-collapse]");
+  if (expandAll)   expandAll.addEventListener("click",  () => document.querySelectorAll(".unit").forEach(u => u.classList.add("is-open")));
+  if (collapseAll) collapseAll.addEventListener("click", () => document.querySelectorAll(".unit").forEach(u => u.classList.remove("is-open")));
+}
+
+/* ---------- Live search ---------- */
 function initSearch() {
   const input = document.querySelector("[data-search]");
-  const meta = document.querySelector("[data-results]");
-  const expandBtn = document.querySelector("[data-expand-all]");
-  const collapseBtn = document.querySelector("[data-collapse-all]");
+  const label = document.querySelector("[data-results]");
   if (!input) return;
 
-  const units = Array.from(document.querySelectorAll(".unit"));
+  const units = [...document.querySelectorAll(".unit")];
+  const totalChips = document.querySelectorAll(".chip").length;
 
-  function applyFilter(q) {
-    const query = q.trim().toLowerCase();
-    let lessonMatches = 0;
+  function filter(q) {
+    const lq = q.toLowerCase().trim();
+    let visible = 0;
 
     units.forEach(unit => {
-      const lessons = unit.querySelectorAll(".lesson");
-      let unitHasMatch = false;
-
-      lessons.forEach(lesson => {
-        const title = lesson.querySelector(".lesson-title")?.textContent.toLowerCase() || "";
-        const assignments = Array.from(lesson.querySelectorAll(".assignments a"))
-          .map(a => a.textContent.toLowerCase()).join(" ");
-        const haystack = title + " " + assignments;
-        const match = !query || haystack.includes(query);
-        lesson.classList.toggle("is-hidden", !match);
-        if (match) { unitHasMatch = true; lessonMatches++; }
+      const chips = [...unit.querySelectorAll(".chip")];
+      let anyMatch = false;
+      chips.forEach(chip => {
+        const match = !lq || chip.textContent.toLowerCase().includes(lq);
+        chip.classList.toggle("is-hidden", !match);
+        if (match) { anyMatch = true; visible++; }
       });
 
-      const unitTitle = unit.querySelector(".unit-title")?.textContent.toLowerCase() || "";
-      const unitMatch = !query || unitTitle.includes(query) || unitHasMatch;
-      unit.classList.toggle("is-hidden", !unitMatch);
+      // Also match unit title
+      const titleMatch = !lq || unit.querySelector(".unit-label")?.textContent.toLowerCase().includes(lq);
+      unit.classList.toggle("is-hidden", !(anyMatch || titleMatch));
+      if (lq && (anyMatch || titleMatch)) unit.classList.add("is-open");
 
-      if (query && unitHasMatch) {
-        unit.classList.add("is-open");
-        unit.querySelectorAll(".lesson:not(.is-hidden)").forEach(l => l.classList.add("is-open"));
-      }
+      // Show rtype-groups that have visible chips
+      unit.querySelectorAll(".rtype-group").forEach(g => {
+        const hasVisible = [...g.querySelectorAll(".chip")].some(c => !c.classList.contains("is-hidden"));
+        g.classList.toggle("is-hidden", lq && !hasVisible);
+      });
     });
 
-    if (meta) {
-      meta.textContent = query
-        ? `${lessonMatches} lesson${lessonMatches === 1 ? "" : "s"} match "${q}"`
-        : `${units.length} units · ${document.querySelectorAll(".lesson").length} lessons`;
+    if (label) {
+      label.textContent = lq
+        ? `${visible} resource${visible === 1 ? "" : "s"} matching "${q}"`
+        : `${units.length} units · ${totalChips} resources`;
     }
   }
 
-  input.addEventListener("input", e => applyFilter(e.target.value));
-  applyFilter("");
+  input.addEventListener("input", e => filter(e.target.value));
+  filter(""); // initialize count
 
   document.addEventListener("keydown", e => {
     if (e.key === "/" && document.activeElement !== input && !e.metaKey && !e.ctrlKey) {
-      e.preventDefault();
-      input.focus();
+      e.preventDefault(); input.focus();
     }
     if (e.key === "Escape" && document.activeElement === input) {
-      input.value = "";
-      applyFilter("");
-      input.blur();
+      input.value = ""; filter(""); input.blur();
     }
   });
-
-  if (expandBtn) {
-    expandBtn.addEventListener("click", () => {
-      document.querySelectorAll(".unit:not(.is-hidden)").forEach(u => u.classList.add("is-open"));
-      document.querySelectorAll(".lesson:not(.is-hidden)").forEach(l => l.classList.add("is-open"));
-    });
-  }
-  if (collapseBtn) {
-    collapseBtn.addEventListener("click", () => {
-      document.querySelectorAll(".unit, .lesson").forEach(el => el.classList.remove("is-open"));
-    });
-  }
 }
 
-/* Cursor-following glow on class cards */
-function initCardCursor() {
+/* ---------- 3D card tilt ---------- */
+function init3DTilt() {
+  const MAX_TILT = 10; // degrees
+
   document.querySelectorAll(".class-card").forEach(card => {
     card.addEventListener("pointermove", e => {
       const rect = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-      card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      const xPct = (cx / rect.width  - 0.5) * 2;  // -1 to 1
+      const yPct = (cy / rect.height - 0.5) * 2;
+
+      card.style.setProperty("--rx", `${-yPct * MAX_TILT}deg`);
+      card.style.setProperty("--ry", `${xPct  * MAX_TILT}deg`);
+      card.style.setProperty("--cx", `${cx}px`);
+      card.style.setProperty("--cy", `${cy}px`);
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
     });
   });
 }
 
-/* Mark current nav link active based on URL path */
-function initNavActive() {
-  const here = window.location.pathname;
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const href = link.getAttribute("href");
-    if (!href) return;
-    const targetName = href.split("/").pop();
-    const hereName = here.split("/").pop() || "index.html";
-    if (targetName === hereName) link.classList.add("is-active");
-  });
+/* ---------- Floating equation layer ---------- */
+const EQUATIONS = [
+  "F = ma", "p = mv", "W = Fd", "v = v₀ + at",
+  "x = v₀t + ½at²", "E = mc²", "F = kq₁q₂/r²",
+  "∇ × E = −∂B/∂t", "ΔP = FΔt", "τ = Iα",
+  "∮E·dA = Q/ε₀", "E = ½mv²", "T = 2π√(m/k)",
+  "F = −kx", "L = Iω", "v² = v₀² + 2aΔx",
+  "∇·B = 0", "F = qv × B", "P = W/t",
+  "a_c = v²/r",
+];
+
+function initEquationLayer() {
+  const layer = document.querySelector(".eq-layer");
+  if (!layer) return;
+
+  function spawnEq() {
+    const el = document.createElement("span");
+    el.className = "eq";
+    el.textContent = EQUATIONS[Math.floor(Math.random() * EQUATIONS.length)];
+
+    const size = 14 + Math.random() * 22;
+    const x = Math.random() * 92;
+    const y = 30 + Math.random() * 60;
+    const dur = 28 + Math.random() * 40;
+    const rot = (Math.random() - 0.5) * 10;
+    const delay = Math.random() * -dur;
+
+    el.style.cssText = `
+      font-size: ${size}px;
+      left: ${x}%;
+      top: ${y}%;
+      --r: ${rot}deg;
+      animation-duration: ${dur}s;
+      animation-delay: ${delay}s;
+    `;
+    layer.appendChild(el);
+
+    // Remove after 3 cycles to avoid DOM bloat
+    setTimeout(() => el.remove(), (dur * 3 + Math.abs(delay)) * 1000);
+  }
+
+  // Seed a bunch immediately
+  for (let i = 0; i < 18; i++) spawnEq();
+  // Then trickle
+  setInterval(spawnEq, 3500);
 }
