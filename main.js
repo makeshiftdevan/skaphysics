@@ -16,7 +16,7 @@ function markNavActive() {
   });
 }
 
-/* ---------- Unit accordion ---------- */
+/* ---------- Unit + lesson accordion ---------- */
 function initUnitToggles() {
   document.querySelectorAll(".unit-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -24,10 +24,23 @@ function initUnitToggles() {
     });
   });
 
-  const expandAll  = document.querySelector("[data-expand]");
+  document.querySelectorAll(".lesson-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      btn.closest(".lesson").classList.toggle("is-open");
+    });
+  });
+
+  const expandAll   = document.querySelector("[data-expand]");
   const collapseAll = document.querySelector("[data-collapse]");
-  if (expandAll)   expandAll.addEventListener("click",  () => document.querySelectorAll(".unit").forEach(u => u.classList.add("is-open")));
-  if (collapseAll) collapseAll.addEventListener("click", () => document.querySelectorAll(".unit").forEach(u => u.classList.remove("is-open")));
+  if (expandAll)   expandAll.addEventListener("click",  () => {
+    document.querySelectorAll(".unit").forEach(u => u.classList.add("is-open"));
+    document.querySelectorAll(".lesson").forEach(l => l.classList.add("is-open"));
+  });
+  if (collapseAll) collapseAll.addEventListener("click", () => {
+    document.querySelectorAll(".unit").forEach(u => u.classList.remove("is-open"));
+    document.querySelectorAll(".lesson").forEach(l => l.classList.remove("is-open"));
+  });
 }
 
 /* ---------- Live search ---------- */
@@ -45,23 +58,34 @@ function initSearch() {
 
     units.forEach(unit => {
       const chips = [...unit.querySelectorAll(".chip")];
-      let anyMatch = false;
+      let anyUnitMatch = false;
       chips.forEach(chip => {
         const match = !lq || chip.textContent.toLowerCase().includes(lq);
         chip.classList.toggle("is-hidden", !match);
-        if (match) { anyMatch = true; visible++; }
+        if (match) { anyUnitMatch = true; visible++; }
       });
 
-      // Also match unit title
-      const titleMatch = !lq || unit.querySelector(".unit-label")?.textContent.toLowerCase().includes(lq);
-      unit.classList.toggle("is-hidden", !(anyMatch || titleMatch));
-      if (lq && (anyMatch || titleMatch)) unit.classList.add("is-open");
-
-      // Show rtype-groups that have visible chips
+      // Show/hide rtype-groups
       unit.querySelectorAll(".rtype-group").forEach(g => {
         const hasVisible = [...g.querySelectorAll(".chip")].some(c => !c.classList.contains("is-hidden"));
         g.classList.toggle("is-hidden", lq && !hasVisible);
       });
+
+      // Show/hide lessons, open lessons that have matches
+      unit.querySelectorAll(".lesson").forEach(lesson => {
+        const lessonChips = [...lesson.querySelectorAll(".chip")];
+        const hasMatch = lessonChips.some(c => !c.classList.contains("is-hidden"));
+        const titleMatch = !lq || lesson.querySelector(".lesson-label")?.textContent.toLowerCase().includes(lq);
+        lesson.classList.toggle("is-hidden", lq && !hasMatch && !titleMatch);
+        if (lq && (hasMatch || titleMatch)) lesson.classList.add("is-open");
+        if (!lq) lesson.classList.remove("is-open");
+      });
+
+      // Unit title match
+      const titleMatch = !lq || unit.querySelector(".unit-label")?.textContent.toLowerCase().includes(lq);
+      unit.classList.toggle("is-hidden", !(anyUnitMatch || titleMatch));
+      if (lq && (anyUnitMatch || titleMatch)) unit.classList.add("is-open");
+      if (!lq) unit.classList.remove("is-open");
     });
 
     if (label) {
